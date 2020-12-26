@@ -1,20 +1,73 @@
 extends layout
 
 block content
-  div.login-box
-    div.login-logo
-     a(href='#') Softsed SimpleAdminLTE
-    div.login-box-body
-      p.login-box-msg Sign in to start your session
-       form(action="",method="post")
-        div(class='form-group has-feedback')
-         input(type='text',class="form-control",placeholder='Username')
-         span(class='glyphicon glyphicon-envelope form-control-feedback')
-        div(class='form-group has-feedback')
-         input(type='password',class="form-control",placeholder='Password')
-         span(class='glyphicon glyphicon-envelope form-control-feedback')
-        div.row
-          div.col-xs-12
-            div(class='checkbox icheck')
-              div.col-xs-12
-                button(type="submit",class='btn btn-primary btn-block btn-flat') Sign In
+  body(class="hold-transition skin-purple sidebar-mini")
+    div.wrapper
+      header.main-header
+        a.logo <span class="logo-mini"><b>A</b>LT</span> <span class="logo-lg">Simple<b>Admin</b>LTE</span>
+        nav(class="navbar navbar-static-top")
+          a(class="sidebar-toggle",data-toggle="offcanvas",role="button",href="#")
+            span.sr-only
+            span.icon-bar Toggle navigation
+            span.icon-bar
+            span.icon-bar
+          div.navbar-custom-menu
+            ul(class="nav navbar-nav")
+              li(class="user user-menu")
+                a(class="",data-toggle="offcanvas",role="button",href="#")
+                 <img src="/dist/img/user2-160x160.jpg"class="user-image" alt="User Image">
+                  span.hidden-xs Alexander Pierce
+      aside.main-sidebar
+         section.sidebar
+           div.user-panel
+             div(class="pull-left image")
+               <img src="/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+             div(class="pull-left info")
+               p Alexander Pierce
+               a <i class="fa fa-circle text-success"></i> Online
+           ul.sidebar-menu
+            li.header MAIN NAVIGATION
+            li <a href=""><span>ข้อมูลแจ้งซ่อม</span></a>
+            li <a href=""><span>จัดการอุปกรณ์</span></a>
+            li <a href=""><span>จัดการช่าง</span></a>
+            li <a href=""><span>สถานะการแจ้งซ่อม</span></a>
+            li <a href=""><span>สถิติ</span></a>
+            li <a href=""><span>รายงาน</span></a>
+            li <a href=""><span>รายงานซ่อมเสร็จ</span></a>
+            li <a href=""><span>ออกจากระบบ</span></a>
+      div.content-wrapper
+        section.content-header
+          h1 ข้อมูลการแจ้งซ่อม  <small>รอดำเนินการ การแจ้งซ่อมใหม่</small>
+          ol.breadcrumb
+            li <a href="#"><i class="fa fa-dashboard"></i> Home</a>
+            li <a href="#">Examples</a>
+            li.acive Blank page
+        section.content
+          div.box
+            div(class="box-header with-border")
+              h3.box-title รอดำเนินการ การแจ้งซ่อมใหม่
+            div.box-body
+             table(class='table table-bordered table-striped',id='example2')
+              thead
+               tr
+                 th จัดการ
+                 th เลขที่ซ่อม
+                 th อุปกรณ์
+                 th วันที่แจ้ง
+                 th ผู้เเจ้ง
+                 th สถานะ
+                 th ยกเลิก
+              each order in data
+               tr
+                 td <a class="btn btn-primary">รับงาน</a>
+                 td
+                 td คอมพิวเตอร์
+                 td
+                 td
+                 td
+                 td <a class="btn btn-danger">ยกเลิก</a>
+      footer.main-footer
+        div(class="pull-right hidden-xs") <b><a href="http://www.fb.com/softsed">Softsed-SimpleAdminLTE V 1.0</a></b> 
+        strong <a href="http://almsaeedstudio.com">Almsaeed Studio V 2.3.11</a>
+
+          
