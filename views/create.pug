@@ -1,0 +1,81 @@
+extends layout
+
+block content
+  div.wrapper
+    header.main-header
+      nav(class='navbar navbar-static-top')
+        div.container
+          div.navbar-header
+            a(href="#",class="navbar-brand") ระบบแจ้งซ่อมออนไลน์
+              button(type="button",class="navbar-toggle collapsed",data-toggle="collapse",data-target="#navbar-collapse")
+                i(class='fa fa-bars')
+          div(class='collapse navbar-collapse pull-right',id='navbar-collapse')
+            ul(class="nav navbar-nav")
+              li.dropdown
+                a(class='dropdown-toggle',data-toggle='dropdown') ล็อคอิน <span class="caret"></span>
+                ul(class='dropdown-menu',role='menu')  
+                  li Admin Login
+    div.content-wrapper
+       div.container
+         section.content-header
+           h1 ระบบแจ้งซ่อมออนไลน์ <small>Version 1.0</small> 
+           ol.breadcrumb <li><a href="#"><i class="fa fa-dashboard"></i>Home</a><li>
+         section.content
+           div(class='box box-default')
+             div(class='box-header with-border')
+               h3.box-title เพิ่มการแจ้งซ่อม
+             form(action='/add',method="post",class="form-horizontal")
+              div.box-body
+                div.form-group
+                 label(class='col-sm-2 control-label') คำนำหน้าชื่อ
+                 div.col-sm-10
+                  select(name="prename_id",class="form-control")
+                   option(value="") เลือก
+                   option(value="1") นาย
+                   option(value="2") นาง
+                   option(value="3") นางสาว
+                div(style="margin-bottom:50px").form-group
+                 label(class='col-sm-2 control-label') ชื่อ
+                 div.col-sm-10
+                  input(type='text',class='form-control',placeholder='ชื่อ',name="firstname")
+                div.form-group
+                  label(class='col-sm-2 control-label') นามสกุล
+                  div.col-sm-10
+                   input(type='text',class='form-control',placeholder='นามสกุล',name="lastname")
+                div.form-group
+                   label(class='col-sm-2 control-label') ตำแหน่ง
+                   div.col-sm-10
+                    select(class="form-control",name='position')
+                     option(value="") เลือก
+                     option(value="1") นักศึกษา
+                     option(value="2") อาจารย์
+                div.form-group
+                   label(class='col-sm-2 control-label') เบอร์โทร
+                   div.col-sm-10
+                     input(type='text',class='form-control',placeholder='เบอร์โทร',name="phone_number")
+                div.form-group
+                    label(class='col-sm-2 control-label') อีเมลล์
+                    div.col-sm-10
+                      input(type='text',class='form-control',placeholder='อีเมลล์',name="email")
+                div.form-group
+                    label(class='col-sm-2 control-label') อุปกรณ์ที่มี
+                    div.col-sm-10
+                      select(name="item",class="form-control")
+                       option(value="") เลือก
+                       option(value="1") computer
+                       option(value="2") printer
+                div.form-group
+                    label(class='col-sm-2 control-label') อาการเสีย
+                    div.col-sm-10
+                       textarea(class="form-control",name="order_detail")
+                       input(type="hidden",value="1",name="status")
+                  
+              div.box-footer(align="center")        
+               button(type='submit',class="btn btn-primary",style="margin-left: 15px;margin-right: 15px;") ยืนยันการซ่อม
+               a(href='/',class="btn btn-danger",style="margin-left: 15px;margin-right: 15px;") ยกเลิก    
+    footer.main-footer
+      div.container
+        div(class='pull-right hidden-xs')
+          <b>Version</b> 2.4.0
+        strong Copyright &copy; 2014-2016 <a href="https://adminlte.io">Almsaeed Studio</a>.
+         span All rights reserved.            

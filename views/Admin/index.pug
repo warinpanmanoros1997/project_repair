@@ -1,0 +1,20 @@
+extends layout
+
+block content
+  div.login-box
+    div.login-logo
+     a(href='#') Softsed SimpleAdminLTE
+    div.login-box-body
+      p.login-box-msg Sign in to start your session
+       form(action="",method="post")
+        div(class='form-group has-feedback')
+         input(type='text',class="form-control",placeholder='Username')
+         span(class='glyphicon glyphicon-envelope form-control-feedback')
+        div(class='form-group has-feedback')
+         input(type='password',class="form-control",placeholder='Password')
+         span(class='glyphicon glyphicon-envelope form-control-feedback')
+        div.row
+          div.col-xs-12
+            div(class='checkbox icheck')
+              div.col-xs-12
+                button(type="submit",class='btn btn-primary btn-block btn-flat') Sign In
