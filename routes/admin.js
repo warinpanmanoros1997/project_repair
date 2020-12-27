@@ -12,4 +12,5 @@ router.get('/main',function(req,res,next) {
   res.render('Admin/index', { title: 'หน้าหลัก',data:data})
   });
 });
+
 module.exports = router;
