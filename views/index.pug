@@ -36,9 +36,16 @@ block content
                   th สถานะ
                 each value,index in data
                  tr
-                  td #{index+1}
+                  td #{value._id}
                   td #{value.item}<br><b>อาการ:#{value.order_detail}</b>
-                  td=value.prename_id+' '+value.firstname+' '+value.lastname
+                  td 
+                    if value.prename_id == '1' 
+                      span นาย&nbsp; 
+                    else if  value.prename_id == '2'
+                      span นาง&nbsp; 
+                    else
+                      span นางสาว&nbsp;     
+                    span #{value.firstname}  #{value.lastname} 
                   td=value.created_date
                   td=value.status
     script.

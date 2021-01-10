@@ -62,14 +62,14 @@ block content
                     div.col-sm-10
                       select(name="item",class="form-control")
                        option(value="") เลือก
-                       option(value="1") computer
-                       option(value="2") printer
+                       each value,index in data_tool
+                        option(value=value._id) #{value.tool_name}
                 div.form-group
                     label(class='col-sm-2 control-label') อาการเสีย
                     div.col-sm-10
                        textarea(class="form-control",name="order_detail")
-                       input(type="hidden",value="1",name="status")
-                  
+                       input(type="hidden",value=data_status._id,name="status")
+                         
               div.box-footer(align="center")        
                button(type='submit',class="btn btn-primary",style="margin-left: 15px;margin-right: 15px;") ยืนยันการซ่อม
                a(href='/',class="btn btn-danger",style="margin-left: 15px;margin-right: 15px;") ยกเลิก    

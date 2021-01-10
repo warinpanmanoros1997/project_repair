@@ -6,9 +6,9 @@ var orderSchema = mongoose.Schema({
   position: Number,
   phone_number:String,
   email:String,
-  item:Number,
+  item:{type: String, required : true},
   order_detail:String,
-  status:Number,
+  status:{type: String, required : true},
   created_date: {type:Date,default: Date.now}
 });
 
