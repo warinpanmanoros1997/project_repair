@@ -6,9 +6,28 @@ var Tool = require('../models/toolModel.js');
 var _ = require('lodash');
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  Order.find().exec((err,data)=>{
-  res.render('index', { title: 'หน้าหลัก',data:data});
-  });
+  Order.aggregate([
+      {
+         $lookup:
+          {
+           from:"tools" ,
+           localField:"item",
+           foreignField:"_id",
+           as:"item_list"
+          }
+       },
+       {
+         $lookup:
+         {
+           from:"status_orders" ,
+           localField:"status",
+           foreignField:"_id",
+           as:"status_list"
+         }
+       },
+    ]).exec((err,data)=>{
+    res.render('index', { title: 'หน้าหลัก',data:data});
+    });
 });
 router.get('/create',function(req,res,next){
   var data_tool = [];

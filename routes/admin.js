@@ -8,9 +8,28 @@ router.get('/', function(req, res, next) {
   res.render('Admin/login/index', { title: 'หน้าหลัก' });
 });
 router.get('/main',function(req,res,next) {
-  Order.find().exec((err,data) =>{
-  res.render('Admin/index', { title: 'หน้าหลัก',data:data})
-  });
+  Order.aggregate([
+      {
+         $lookup:
+          {
+           from:"tools" ,
+           localField:"item",
+           foreignField:"_id",
+           as:"item_list"
+          }
+       },
+       {
+         $lookup:
+         {
+           from:"status_orders" ,
+           localField:"status",
+           foreignField:"_id",
+           as:"status_list"
+         }
+       },
+    ]).exec((err,data)=>{
+    res.render('Admin/index', { title: 'หน้าหลัก',data:data});
+    });
 });
 
 module.exports = router;

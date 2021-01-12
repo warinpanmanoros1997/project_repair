@@ -37,7 +37,7 @@ block content
                 each value,index in data
                  tr
                   td #{value._id}
-                  td #{value.item}<br><b>อาการ:#{value.order_detail}</b>
+                  td #{value.item_list[0].tool_name}<br><b>อาการ:#{value.order_detail}</b>
                   td 
                     if value.prename_id == '1' 
                       span นาย&nbsp; 
@@ -47,7 +47,9 @@ block content
                       span นางสาว&nbsp;     
                     span #{value.firstname}  #{value.lastname} 
                   td=value.created_date
-                  td=value.status
+                  td #{value.status_list[0].status_name}
+    script.
+     console.log(!{JSON.stringify(data)});
     script.
       $(function () {
         $('#example1').DataTable()

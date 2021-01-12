@@ -37,7 +37,7 @@ block content
             li <a href=""><span>ออกจากระบบ</span></a>
       div.content-wrapper
         section.content-header
-          h1 ข้อมูลการแจ้งซ่อม  <small>รอดำเนินการ การแจ้งซ่อมใหม่</small>
+          h1 ข้อมูลการแจ้งซ่อม <br><small>รอดำเนินการ การแจ้งซ่อมใหม่</small>
           ol.breadcrumb
             li <a href="#"><i class="fa fa-dashboard"></i> Home</a>
             li <a href="#">Examples</a>
@@ -57,14 +57,21 @@ block content
                  th ผู้เเจ้ง
                  th สถานะ
                  th ยกเลิก
-              each order in data
+              each value in data
                tr
                  td <a class="btn btn-primary">รับงาน</a>
-                 td
-                 td คอมพิวเตอร์
-                 td
-                 td
-                 td
+                 td #{value._id}
+                 td #{value.item_list[0].tool_name}
+                 td #{value.created_date}
+                 td 
+                   if value.prename_id == '1' 
+                     span นาย&nbsp; 
+                   else if  value.prename_id == '2'
+                     span นาง&nbsp; 
+                   else
+                     span นางสาว&nbsp;     
+                   span #{value.firstname}  #{value.lastname} 
+                 td #{value.status_list[0].status_name}
                  td <a class="btn btn-danger">ยกเลิก</a>
       footer.main-footer
         div(class="pull-right hidden-xs") <b><a href="http://www.fb.com/softsed">Softsed-SimpleAdminLTE V 1.0</a></b> 
